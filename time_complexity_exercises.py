@@ -10,14 +10,21 @@
 
 #TapeEquilibrium
 #Minimize the value |(A[0] + ... + A[P-1]) - (A[P] + ... + A[N-1])| ()()
-def minimum_difference(A=[3,1,2,4,3]):
-    result = list()
+def minimum_difference(A):
+    result=list()
+    N = 0
     P = [i for i in range(1,len(A))]
-    print(P)
     for i in range(len(A)):
-        f = A[i]+A[i+1]
-        d = A[i]+
+        N+=A[i+1]
+        result.append(abs(result[i]-sum(A[i+1:])))
+    return min(result)
+
+print(minimum_difference(A=[3,1,2,4,3]))
 
 # A=[3,1,2,4,3]
 # # P = range(len(A))
 # print(range(len(A)))
+# P = [i for i in range(1,len(A))]
+# print(P)
+# i=range(len(A))
+# print(abs(A[0]-sum(A[0+1:])))
