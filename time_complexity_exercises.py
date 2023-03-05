@@ -15,7 +15,7 @@ def minimum_difference(A):
     N = 0
     P = [i for i in range(1,len(A))]
     for i in range(len(A)):
-        index = i + i*(i+1)//2
+        # index = i + i*(i+1)//2
         result.append(abs(result[i]-sum(A[i+1:])))
     return min(result)
 
