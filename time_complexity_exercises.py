@@ -11,13 +11,23 @@
 #TapeEquilibrium
 #Minimize the value |(A[0] + ... + A[P-1]) - (A[P] + ... + A[N-1])| ()()
 def minimum_difference(A):
-    result=list()
-    N = 0
-    P = [i for i in range(1,len(A))]
-    for i in range(len(A)):
-        # index = i + i*(i+1)//2
-        result.append(abs(result[i]-sum(A[i+1:])))
-    return min(result)
+    L_index = 0
+    R_index = len(A)-1
+    
+    left_sum = A[L_index]
+    right_sum = sum(A[R_index:])
+    
+    value = list()
+
+    while R_index > 0:
+        deduction = abs(left_sum - right_sum)
+        if deduction !=0:
+            value.append(deduction)
+        L_index += 1
+        left_sum += A[L_index]
+        R_index -= 1
+
+    return min(value)
 
 print(minimum_difference(A=[3,1,2,4,3]))
 
